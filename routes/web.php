@@ -49,10 +49,6 @@ Route::group(['prefix' => 'bbs/1'], function () {
 // -------------------------
 Route::get('/regist', 'RegistController@index')->name('register');
 
-// -------------------------
-// ----- クローリング -----
-// -------------------------
-Route::get('getparrots', 'GetParrotsController@getParrots');
 
 
 // 全ユーザ
@@ -63,6 +59,11 @@ Route::group(['middleware' => ['auth', 'can:admin-higher']], function () { });
 
 // システム管理者のみ
 Route::group(['middleware' => ['auth', 'can:system-only']], function () {
+
+  // -------------------------
+  // ----- クローリング -----
+  // -------------------------
+  Route::get('getparrots', 'GetParrotsController@getParrots');
 
   // -------------------------
   // ----- ユーザー一覧 -----

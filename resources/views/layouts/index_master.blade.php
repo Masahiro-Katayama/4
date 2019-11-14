@@ -23,19 +23,19 @@
   <!-- ------------------- sidenav ------------------- -->
   <ul id="slide-out" class="sidenav">
     <li><a href="{{ url('/') }}"><i class="fas fa-dove fa-2x color"></i>インコ・オウム一覧</a></li>
-    <li><a href="{{ url('/bbs/1/') }}"><i class="fas fa-dove fa-2x color"></i>掲示板</a></li>
+    <!-- <li><a href="{{ url('/bbs/1/') }}"><i class="fas fa-dove fa-2x color"></i>掲示板</a></li> -->
     <li><a href="{{ url('/contact/') }}"><i class="fas fa-dove fa-2x color"></i>お問い合わせ</a></li>
     @guest
     <li>
-      <a href="{{ route('login') }}">ログイン</a>
+      <a href="{{ route('login') }}">管理者</a>
     </li>
     @if (Route::has('register'))
-    <li>
+    <!-- <li>
       <a href="{{ route('register') }}">登録</a>
-    </li>
+    </!--> -->
     @endif
     @else
-    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
+    <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">管理者機能<i class="material-icons right">arrow_drop_down</i></a></li>
 
     <ul id="dropdown2" class="dropdown-content dd2">
       <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
@@ -62,28 +62,30 @@
         <a href="" data-target="slide-out" class="sidenav-trigger"><i class="material-icons"><i class="fas fa-bars"></i></i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-          <li>
-            <a class="dropdown-trigger" href="#!" data-target="dropdown2">クローリング<i class="material-icons right">arrow_drop_down</i></a>
-          </li>
+          <!-- <li>
+              <a class="dropdown-trigger" href="#!" data-target="dropdown2">クローリング<i class="material-icons right">arrow_drop_down</i></a>
+            </li> -->
 
           <ul id="dropdown2" class="dropdown-content">
             <li><a href="{{ url('/getparrots/touhoku') }}">開始する！</a></li>
           </ul>
 
           <li><a href="{{ url('/') }}">インコ・オウム一覧</a></li>
-          <li><a href="{{ url('/bbs/1/') }}">掲示板</a></li>
+          <!-- <li><a href="{{ url('/bbs/1/') }}">掲示板</a></li> -->
           <li><a href="{{ url('/contact/') }}">お問い合わせ</a></li>
           @guest
           <li>
-            <a href="{{ route('login') }}">ログイン</a>
+            <a href="{{ route('login') }}">管理画面</a>
           </li>
           @if (Route::has('register'))
-          <li>
+          <!-- <li>
             <a href="{{ route('register') }}">登録</a>
-          </li>
+          </li> -->
           @endif
           @else
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
+          <!-- <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li> -->
+
+          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">管理者機能<i class="material-icons right">arrow_drop_down</i></a></li>
 
           <ul id="dropdown1" class="dropdown-content dd1">
             <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
@@ -118,7 +120,7 @@
 
   <!-- ------------------- footer ------------------- -->
   <footer>
-    <small>Copyright &copy; ToriBird All Rights Reserved.</small>
+    <small>© 2019 TORIBIRD</small>
   </footer><!-- footer -->
 
 </body>
