@@ -54,7 +54,7 @@ class UsersController extends Controller
     public function newFinish(Request $request)
     {
         $user = new \App\User;
-        $user->id = 99999999;
+        $user->id = rand(00000001, 99999999);
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
