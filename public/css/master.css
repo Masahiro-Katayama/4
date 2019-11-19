@@ -6,16 +6,22 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  font-family: "Righteous", cursive, "M PLUS Rounded 1c", sans-serif, "游ゴシック Medium", "游ゴシック体",
-    "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
-    "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-  color: black;
+  font-weight: 600;
+  /* text-shadow: 0.5px 0.5px 1px #000000; */
+  list-style: none;
+  text-decoration: none;
 }
-.btn {
-  background: #ef5350;
+
+body,
+.btn,
+a {
   font-family: "Righteous", cursive, "M PLUS Rounded 1c", sans-serif, "游ゴシック Medium", "游ゴシック体",
     "Yu Gothic Medium", YuGothic, "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo,
     "ＭＳ Ｐゴシック", "MS PGothic", sans-serif !important;
+}
+
+.btn {
+  background: #ef5350;
 }
 
 /*----------------------- sidenav -----------------------*/

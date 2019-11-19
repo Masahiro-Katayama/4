@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\File;
 
 class GetParrotsController extends Controller
 {
-	private function findParrot($html, $pref_id, $zoo_name, $start_point, $before_word, $after_word)
+	private function findParrot($html, $pref_id, $zoo_name, $before_word, $after_word)
 	{
 		\App\Zooname::insert(['prefecture_id' => $pref_id, 'zooname' => $zoo_name]);
 
@@ -14,11 +14,7 @@ class GetParrotsController extends Controller
 		$parrot_name = '';
 
 		foreach ($parrot_types as $parrot_type) {
-			if ($start_point == "") {
-				$html_copy = $html;
-			} else {
-				$html_copy = mb_substr($html, mb_strpos($html, $start_point));
-			}
+			$html_copy = $html;
 
 			for ($i = 0;; $i++) {
 				if (mb_strpos($html_copy, $parrot_type) === false) {
@@ -26,7 +22,6 @@ class GetParrotsController extends Controller
 				}
 
 				//インコの名前
-
 				for ($j = -1; mb_substr($html_copy, mb_strpos($html_copy, $parrot_type) + $j, 1) != $before_word; $j--) {
 					$parrot_name = mb_substr($html_copy, mb_strpos($html_copy, $parrot_type) + $j, 1) . $parrot_name;
 				}
@@ -131,7 +126,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = 'li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 釧路市動物園 ----------*/
 		$html = file_get_contents("https://www.city.kushiro.lg.jp/zoo/shoukai/0001.html");
@@ -140,7 +135,7 @@ class GetParrotsController extends Controller
 		$before_word = '"';
 		$after_word = 'の';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 札幌市円山動物園 ----------*/
 		$html = file_get_contents("https://www.city.sapporo.jp/zoo/doubutsu/index50.html");
@@ -149,7 +144,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = '<';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- ノースサファリサッポロ ----------*/
 		$html = file_get_contents("https://www.north-safari.com/animals/animal_nss");
@@ -158,7 +153,7 @@ class GetParrotsController extends Controller
 		$before_word = '"';
 		$after_word = '"';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 岩手サファリパーク ----------*/
 		$html = file_get_contents("https://www.iwate-safari.jp/animal");
@@ -167,7 +162,7 @@ class GetParrotsController extends Controller
 		$before_word = '"';
 		$after_word = '"';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 八木山動物公園 現在いない2019/9/24 ----------*/
 		// $html = file_get_contents("https://www.city.sendai.jp/zoo/dobutsu/chorui/omu.html");
@@ -176,7 +171,7 @@ class GetParrotsController extends Controller
 		// $before_word = '>';
 		// $after_word = '<';
 
-		// $this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		// $this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 秋田市大森山動物園 ----------*/
 		$html = file_get_contents("https://www.city.akita.lg.jp/zoo/information/1003682/1005303/index.html");
@@ -185,7 +180,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = '<';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		return redirect('/');
 	}
@@ -201,7 +196,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = '<';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 
 		/*---------- 桐生が岡動物園 ----------*/
@@ -211,7 +206,7 @@ class GetParrotsController extends Controller
 		$before_word = '（';
 		$after_word = '）';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 草津熱帯圏 ----------*/
 		$html = file_get_contents("http://animalchain.site/zoo/293");
@@ -220,7 +215,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = 'li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 群馬サファリパーク ----------*/
 		$html = file_get_contents("http://www.safari.co.jp/animal/");
@@ -229,7 +224,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = '<';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 大宮公園小動物園 ----------*/
 		$html = file_get_contents("http://animalchain.site/zoo/23");
@@ -238,7 +233,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = 'li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- キャンベルタウン野鳥の森 ----------*/
 		$html = file_get_contents("https://yacho-nomori.kosi-kanri.com/animal.html");
@@ -247,7 +242,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = '<';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 埼玉県こども動物自然公園 ----------*/
 		$html = file_get_contents("https://ja.wikipedia.org/wiki/%E5%9F%BC%E7%8E%89%E7%9C%8C%E3%81%93%E3%81%A9%E3%82%82%E5%8B%95%E7%89%A9%E8%87%AA%E7%84%B6%E5%85%AC%E5%9C%92#%E5%8B%95%E7%89%A9%E5%9C%92%E6%96%BD%E8%A8%AD%E3%83%BB%E4%B8%BB%E3%81%AA%E9%A3%BC%E8%82%B2%E5%8B%95%E7%89%A9");
@@ -256,7 +251,7 @@ class GetParrotsController extends Controller
 		$before_word = '"';
 		$after_word = '</a>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 狭山市立智光山公園こども動物園 ----------*/
 		$html = file_get_contents("http://www.parks.or.jp/chikozan/zoo/animal/aves.html");
@@ -265,7 +260,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = '<';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 千葉市動物公園 ----------*/
 		$html = file_get_contents("http://www.city.chiba.jp/zoo/zone/animal-top.html");
@@ -274,7 +269,7 @@ class GetParrotsController extends Controller
 		$before_word = '・';
 		$after_word = '<';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 足立区生物園 ----------*/
 		$html = file_get_contents("http://animalchain.site/zoo/34");
@@ -283,7 +278,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = 'li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 恩賜上野動物園 ----------*/
 		$html = file_get_contents("http://animalchain.site/zoo/29");
@@ -292,7 +287,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = 'li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 江戸川区自然動物園 ----------*/
 		$html = file_get_contents("https://www.edogawa-kankyozaidan.jp/zoo/introduction/");
@@ -301,7 +296,7 @@ class GetParrotsController extends Controller
 		$before_word = '"';
 		$after_word = 'iv>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 多摩動物公園 ----------*/
 		$html = file_get_contents("http://animalchain.site/zoo/13");
@@ -310,7 +305,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = 'li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 羽村市動物公園 ----------*/
 		$html = file_get_contents("http://www.t-net.ne.jp/~hamura-z/html/animal.html");
@@ -319,7 +314,7 @@ class GetParrotsController extends Controller
 		$before_word = '"';
 		$after_word = '</td>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 相模原麻溝公園ふれあい動物広場 ----------*/
 		$html = file_get_contents("http://animalchain.site/zoo/234");
@@ -328,7 +323,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = 'li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 夢見ケ崎動物公園 ----------*/
 		$html = file_get_contents("http://www.city.kawasaki.jp/shisetsu/category/30-26-3-3-0-0-0-0-0-0.html");
@@ -337,7 +332,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = '</li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 野毛山動物園 ----------*/
 		$html = file_get_contents("http://www.hama-midorinokyokai.or.jp/zoo/nogeyama/animal/");
@@ -346,7 +341,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = '</li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- よこはま動物園ズーラシア ----------*/
 		$html = file_get_contents("http://www.hama-midorinokyokai.or.jp/zoo/zoorasia/animal/");
@@ -355,7 +350,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = '</li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		return redirect('/');
 	}
@@ -371,7 +366,7 @@ class GetParrotsController extends Controller
 		$before_word = '"';
 		$after_word = '</h3>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- いしかわ動物園 ----------*/
 		$html = file_get_contents("http://animalchain.site/zoo/45");
@@ -380,7 +375,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = 'li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 小諸市動物園 ----------*/
 		$html = file_get_contents("https://www.city.komoro.lg.jp/citypromotion/places/doubutuen/7009.html");
@@ -389,7 +384,7 @@ class GetParrotsController extends Controller
 		$before_word = '>';
 		$after_word = '</tr>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 須坂市動物園 ----------*/
 		$html = file_get_contents("https://www.city.suzaka.nagano.jp/suzaka_zoo/animal/#birds");
@@ -398,26 +393,26 @@ class GetParrotsController extends Controller
 		$before_word = '\'';
 		$after_word = 'trim';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 伊豆シャボテン公園 ----------*/
-		$html = file_get_contents("https://izushaboten.com/animal/inko.html");
+		$html = file_get_contents("http://animalchain.site/zoo/57");
 		$pref_id = \App\Prefecture::where('prefecturename', '静岡県')->value('id');
 		$zoo_name = '伊豆シャボテン公園';
-		$start_point = "kotai";
-		$before_word = '「';
-		$after_word = '</li>';
+		$start_point = "";
+		$before_word = '>';
+		$after_word = 'li>';
 
-		$this->findParrot($html, $pref_id, $zoo_name, $start_point, $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		/*---------- 浜松市動物園 ----------*/
-		// $html = file_get_contents("https://www.hamazoo.net/list_animals.php#birds");
-		// $pref_id = \App\Prefecture::where('prefecturename', '静岡県')->value('id');
-		// $zoo_name = '浜松市動物園';
-		// $before_word = '>';
-		// $after_word = '</tr>';
+		$html = file_get_contents("http://animalchain.site/zoo/60");
+		$pref_id = \App\Prefecture::where('prefecturename', '静岡県')->value('id');
+		$zoo_name = '浜松市動物園';
+		$before_word = '>';
+		$after_word = 'li>';
 
-		// $this->findParrot($html, $pref_id, $zoo_name, $start_point = "", $before_word, $after_word);
+		$this->findParrot($html, $pref_id, $zoo_name, $before_word, $after_word);
 
 		return redirect('/');
 	}

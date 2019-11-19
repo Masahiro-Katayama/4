@@ -19,6 +19,8 @@ Auth::routes();
 // -------------------------
 Route::get('/', 'DisplayParrotsController@display');
 
+Route::get('/test', 'IndexController@display');
+
 // -------------------------
 // ----- お問い合わせ -----
 // -------------------------

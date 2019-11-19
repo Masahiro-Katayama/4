@@ -110,8 +110,8 @@ p {
   height: 100px;
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: 10% 3%;
-     object-position: 10% 3%;
+  -o-object-position: top center;
+     object-position: top center;
   margin-top: 6px;
   margin-left: 6px;
 }

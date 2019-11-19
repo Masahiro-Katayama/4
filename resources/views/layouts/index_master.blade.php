@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:700&display=swap&subset=japanese" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Noto+Sans+JP&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -58,7 +57,7 @@
   <header class="col s10 offset-s2">
     <nav>
       <div class="nav-wrapper">
-        <a href="{{ url('/') }}" class="brand-logo"><img src="{{ asset('/storage/img/logo.png') }}"></a>
+        <a href="{{ url('/') }}" class="brand-logo"><img src="{{ asset('/storage/img/ToriBird-logo-white.png') }}"></a>
         <a href="" data-target="slide-out" class="sidenav-trigger"><i class="material-icons"><i class="fas fa-bars"></i></i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
 
