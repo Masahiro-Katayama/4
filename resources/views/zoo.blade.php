@@ -53,8 +53,8 @@
 			<ul class="zoo-name-outer z-depth-4">
 				<li>
 					<div class="zoo-name">
-						<div>{{ $zooname }}</div>
-						<div>{{ $prefecture }}</div>
+						<div class="name">{{ $zooname }}</div>
+						<div class="pref">{{ $prefecture }}</div>
 					</div>
 				</li>
 				@foreach ($parrots as $parrot)

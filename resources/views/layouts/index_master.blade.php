@@ -88,16 +88,28 @@
           <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">管理者機能<i class="material-icons right">arrow_drop_down</i></a></li>
 
           <ul id="dropdown1" class="dropdown-content dd1">
-            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-              </form>
-            </li>
             <li>
               <a href="{{ url('/users/list') }}">ユーザー管理</a>
             </li>
             <li>
-              <a href="{{ url('/getparrots') }}">クローリング</a>
+              <a href="{{ url('/bbs/1/') }}">掲示板</a>
+            </li>
+            <li>
+              <a href="{{ url('/getparrotsdelete') }}">クローリング初期化</a>
+            </li>
+            <li>
+              <a href="{{ url('/getparrotstohoku') }}">クローリング東北</a>
+            </li>
+            <li>
+              <a href="{{ url('/getparrotskanto') }}">クローリング関東</a>
+            </li>
+            <li>
+              <a href="{{ url('/getparrotschubu') }}">クローリング中部</a>
+            </li>
+            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">ログアウト</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
             </li>
           </ul>
 

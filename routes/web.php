@@ -63,7 +63,10 @@ Route::group(['middleware' => ['auth', 'can:system-only']], function () {
   // -------------------------
   // ----- クローリング -----
   // -------------------------
-  Route::get('getparrots', 'GetParrotsController@getParrots');
+  Route::get('getparrotsdelete', 'GetParrotsController@getParrotsDelete');
+  Route::get('getparrotstohoku', 'GetParrotsController@getParrotsTohoku');
+  Route::get('getparrotskanto', 'GetParrotsController@getParrotsKanto');
+  Route::get('getparrotschubu', 'GetParrotsController@getParrotsChubu');
 
   // -------------------------
   // ----- ユーザー一覧 -----
